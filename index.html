@@ -1,131 +1,186 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Nine&U</title>
-  <meta name="description" content="Nine&U develops simple and useful mobile apps.">
-
+  <meta name="theme-color" content="#f6f7fb">
+  <meta name="description" content="Nine&U는 일상에 꼭 필요한 모바일 앱을 만듭니다. ShiftKing과 WheelU를 만나보세요.">
+  <title>Nine&U — 일상을 조금 더 가볍게</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: #1d1d1f;
-      background: #ffffff;
-      line-height: 1.6;
-    }
-
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 80px 24px;
-    }
-
-    header {
-      margin-bottom: 64px;
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: 42px;
-      letter-spacing: -1px;
-    }
-
-    .tagline {
-      margin: 0;
-      color: #6e6e73;
-      font-size: 18px;
-    }
-
-    section {
-      margin-bottom: 48px;
-    }
-
-    h2 {
-      margin-bottom: 16px;
-      font-size: 22px;
-    }
-
-    .app {
-      padding: 18px 0;
-      border-bottom: 1px solid #e5e5e5;
-    }
-
-    .app strong {
-      display: block;
-      font-size: 18px;
-    }
-
-    .app span {
-      color: #6e6e73;
-      font-size: 14px;
-    }
-
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .links {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    footer {
-      margin-top: 64px;
-      padding-top: 24px;
-      border-top: 1px solid #e5e5e5;
-      color: #86868b;
-      font-size: 13px;
-    }
+    :root { color-scheme: light; --ink: #17202e; --muted: #647083; --line: #e5e9f0; --blue: #5268ed; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: #f6f7fb; font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid #5268ed; outline-offset: 4px; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+    .site-header { height: 78px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-size: 22px; font-weight: 800; letter-spacing: -.065em; }
+    .brand-mark { width: 33px; height: 33px; display: grid; place-items: center; border-radius: 11px; background: #1b2540; color: white; font-size: 15px; letter-spacing: -.09em; }
+    .nav { display: flex; align-items: center; gap: 30px; color: #4e5a6e; font-size: 14px; font-weight: 600; }
+    .nav a:hover, .footer-links a:hover { color: var(--blue); }
+    .contact-link { display: inline-flex; align-items: center; gap: 7px; padding: 9px 14px; border: 1px solid #dbe0eb; border-radius: 100px; background: #fff; color: #354157; font-size: 13px; font-weight: 700; transition: border-color .2s, transform .2s; }
+    .contact-link:hover { border-color: #aab6d5; transform: translateY(-2px); }
+    .contact-link svg { width: 15px; height: 15px; }
+    .hero { position: relative; overflow: hidden; min-height: 494px; display: flex; align-items: center; margin-top: 14px; padding: 76px 7%; border-radius: 32px; background: #17233b; color: #fff; isolation: isolate; }
+    .hero::before { content: ""; position: absolute; width: 650px; height: 650px; right: -165px; top: -270px; border: 1px solid #ffffff2b; border-radius: 50%; box-shadow: 0 0 0 92px #ffffff08, 0 0 0 190px #ffffff06; z-index: -1; }
+    .hero::after { content: ""; position: absolute; width: 460px; height: 460px; right: 6%; top: 17%; border-radius: 50%; background: radial-gradient(circle, #7379ec9a 0%, #6070e64a 30%, transparent 69%); filter: blur(12px); z-index: -1; }
+    .hero-content { max-width: 650px; position: relative; z-index: 1; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #c8d2fa; font-size: 12px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #9cafff; }
+    h1 { margin: 25px 0 21px; font-size: clamp(44px, 6.2vw, 76px); line-height: 1.17; letter-spacing: -.07em; font-weight: 800; }
+    .hero p { margin: 0; color: #c5cede; font-size: clamp(16px, 1.8vw, 19px); line-height: 1.8; word-break: keep-all; }
+    .hero-button { display: inline-flex; align-items: center; gap: 20px; margin-top: 38px; padding: 15px 20px 15px 22px; border-radius: 13px; background: #fff; color: #1b2540; font-size: 14px; font-weight: 800; transition: transform .2s, background .2s; }
+    .hero-button:hover { background: #e8edff; transform: translateY(-2px); }
+    .hero-button span { font-size: 21px; line-height: 12px; font-weight: 400; }
+    .hero-art { position: absolute; width: 340px; height: 340px; right: 5%; top: 78px; transform: rotate(-13deg); }
+    .hero-art::before, .hero-art::after { content: ""; position: absolute; border-radius: 50%; inset: 22px; border: 1px solid #ffffff50; }
+    .hero-art::after { inset: -20px; border-color: #ffffff24; }
+    .hero-orb { position: absolute; inset: 58px; border-radius: 31%; background: linear-gradient(145deg, #a2b9ff, #7772e5 55%, #5359c8); box-shadow: inset 14px 16px 30px #ffffff40, inset -14px -18px 28px #1e317e55, 0 28px 65px #101837a8; transform: rotate(32deg); }
+    .hero-orb::before { content: "9&U"; position: absolute; inset: 0; display: grid; place-items: center; transform: rotate(-19deg); color: #fff; font-size: 65px; font-weight: 800; letter-spacing: -.09em; text-shadow: 0 5px 20px #3340907a; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin: 92px 0 29px; }
+    .section-kicker { margin: 0 0 12px; color: #6576d7; font-size: 12px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+    h2 { margin: 0; font-size: clamp(30px, 3.6vw, 42px); line-height: 1.3; letter-spacing: -.055em; }
+    .section-note { margin: 0 0 5px; color: var(--muted); font-size: 14px; }
+    .apps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .app-card { position: relative; overflow: hidden; min-height: 632px; display: flex; flex-direction: column; padding: 38px 38px 0; border: 1px solid var(--line); border-radius: 27px; background: #fff; }
+    .app-top { position: relative; z-index: 2; }
+    .app-icon { display: grid; place-items: center; width: 58px; height: 58px; margin-bottom: 24px; border-radius: 17px; color: #fff; box-shadow: 0 10px 18px #202c6126; }
+    .king-icon { background: linear-gradient(145deg, #597cf6, #3845af); font-size: 30px; }
+    .wheel-icon { background: linear-gradient(145deg, #ffae78, #ed6b88); font-size: 31px; }
+    .app-category { margin: 0 0 8px; color: #788398; font-size: 12px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    h3 { margin: 0 0 12px; font-size: clamp(31px, 3vw, 39px); line-height: 1.2; letter-spacing: -.05em; }
+    .app-description { max-width: 420px; margin: 0; color: #5e6a7e; font-size: 15px; line-height: 1.8; word-break: keep-all; }
+    .feature-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 23px; padding: 0; list-style: none; }
+    .feature-list li { padding: 7px 10px; border-radius: 7px; background: #f2f4f8; color: #647087; font-size: 11px; font-weight: 700; }
+    .store-links { display: flex; flex-wrap: wrap; gap: 9px; }
+    .store-link { display: inline-flex; align-items: center; gap: 9px; min-height: 41px; padding: 0 14px; border: 1px solid #dbe1eb; border-radius: 10px; background: white; font-size: 12px; font-weight: 800; transition: transform .2s, border-color .2s; }
+    .store-link:hover { transform: translateY(-2px); border-color: #9aabdd; }
+    .store-link svg { width: 16px; height: 16px; }
+    .visual { position: relative; flex: 1; min-height: 260px; margin: 30px -38px 0; overflow: hidden; }
+    .king-visual { background: radial-gradient(circle at 50% 20%, #d2ddff, transparent 58%), linear-gradient(145deg, #edf2ff, #d8e3fb); }
+    .wheel-visual { background: radial-gradient(circle at 50% 20%, #ffe2ce, transparent 58%), linear-gradient(145deg, #fff0e7, #fbdcd8); }
+    .phone { position: absolute; left: 50%; top: 26px; width: 222px; height: 355px; transform: translateX(-50%) rotate(-7deg); border: 7px solid #202941; border-radius: 29px; background: #fff; box-shadow: 15px 19px 34px #4d64a244; padding: 25px 13px 13px; }
+    .phone::before { content: ""; position: absolute; width: 66px; height: 13px; left: 50%; top: 0; transform: translateX(-50%); border-radius: 0 0 10px 10px; background: #202941; }
+    .phone-title { display: flex; justify-content: space-between; align-items: center; margin-bottom: 19px; font-size: 14px; font-weight: 800; }
+    .phone-title span { color: #6574a3; font-size: 11px; }
+    .calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px 2px; text-align: center; }
+    .calendar span { min-height: 23px; display: grid; place-items: center; border-radius: 6px; font-size: 9px; color: #505b70; }
+    .calendar .week { color: #a1aabd; font-size: 8px; font-weight: 700; }
+    .calendar .morning { background: #d9e7ff; color: #4a6fd3; }
+    .calendar .night { background: #e0ddff; color: #7669c3; }
+    .calendar .off { background: #fce4dc; color: #de8373; }
+    .phone-caption { margin-top: 19px; padding: 12px 11px; border-radius: 10px; background: #f5f7fc; color: #6b7890; font-size: 9px; }
+    .phone-caption strong { display: block; margin-bottom: 4px; color: #24324f; font-size: 11px; }
+    .wheel-phone { transform: translateX(-50%) rotate(7deg); }
+    .wheel-display { position: relative; width: 177px; height: 177px; margin: 14px auto 0; border: 9px solid #fff; border-radius: 50%; background: conic-gradient(#fb7788 0 60deg, #ffc56e 60deg 120deg, #6c7ce3 120deg 180deg, #8bcdbd 180deg 240deg, #a689db 240deg 300deg, #f4a775 300deg 360deg); box-shadow: 0 8px 18px #7c476e29; }
+    .wheel-display::before { content: ""; position: absolute; left: 50%; top: -15px; transform: translateX(-50%); border-left: 9px solid transparent; border-right: 9px solid transparent; border-top: 18px solid #26324c; z-index: 2; }
+    .wheel-display::after { content: "GO"; position: absolute; inset: 62px; display: grid; place-items: center; border-radius: 50%; background: #fff; color: #38445c; font-size: 11px; font-weight: 900; box-shadow: 0 3px 10px #35375a30; }
+    .wheel-label { margin: 19px 0 0; text-align: center; color: #788397; font-size: 10px; }
+    .wheel-choice { display: flex; gap: 5px; justify-content: center; margin-top: 10px; }
+    .wheel-choice span { padding: 5px 8px; border-radius: 6px; background: #f4f5f9; color: #677189; font-size: 9px; }
+    .bottom { display: flex; align-items: center; justify-content: space-between; gap: 32px; margin: 90px 0 34px; padding: 33px 36px; border: 1px solid var(--line); border-radius: 22px; background: #fff; }
+    .bottom h2 { margin: 0 0 5px; font-size: 23px; }
+    .bottom p { margin: 0; color: var(--muted); font-size: 13px; }
+    .bottom .contact-link { white-space: nowrap; }
+    footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0 36px; border-top: 1px solid var(--line); color: #8a94a5; font-size: 12px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    @media (max-width: 900px) { .hero-art { right: -110px; opacity: .38; } .hero-content { max-width: 600px; } }
+    @media (max-width: 700px) { .wrap { width: min(100% - 32px, 520px); } .site-header { height: 68px; } .nav { gap: 13px; } .nav .nav-apps { display: none; } .hero { min-height: 490px; padding: 58px 26px; border-radius: 24px; align-items: flex-start; } .hero-art { width: 270px; height: 270px; top: auto; bottom: -105px; right: -75px; opacity: .46; } .hero-orb { inset: 49px; } .hero-orb::before { font-size: 49px; } .hero p { max-width: 390px; } .section-heading { margin-top: 64px; } .section-note { display: none; } .apps { grid-template-columns: 1fr; gap: 16px; } .app-card { min-height: 605px; padding: 29px 27px 0; } .visual { margin-inline: -27px; } .bottom { margin-top: 64px; padding: 27px; flex-direction: column; align-items: flex-start; gap: 18px; } footer { flex-direction: column; align-items: flex-start; } }
+    @media (max-width: 390px) { .nav { gap: 9px; } .nav .nav-blog { display: none; } .hero { min-height: 510px; } h1 { font-size: 42px; } .store-link { padding-inline: 10px; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
   </style>
 </head>
-
 <body>
-  <main>
-
-    <header>
-      <h1>Nine&amp;U</h1>
-      <p class="tagline">Simple and useful mobile apps.</p>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Nine and U, 맨 위로"><span class="brand-mark" aria-hidden="true">9&amp;</span><span>Nine&amp;U</span></a>
+      <nav class="nav" aria-label="주 메뉴">
+        <a class="nav-apps" href="#apps">앱 소개</a>
+        <a class="nav-blog" href="https://blog.9andu.com/" target="_blank" rel="noopener noreferrer">블로그</a>
+        <a class="contact-link" href="mailto:9andu.inc@gmail.com" aria-label="Nine and U에 이메일 보내기">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>문의하기
+        </a>
+      </nav>
     </header>
 
-    <section>
-      <h2>Apps</h2>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <span class="eyebrow">Mobile apps for everyday life</span>
+          <h1 id="hero-title">작은 편리함이<br>하루를 바꿉니다.</h1>
+          <p>Nine&amp;U는 복잡한 일상을 조금 더 단순하고 즐겁게 만드는 모바일 앱을 만듭니다.</p>
+          <a class="hero-button" href="#apps">앱 둘러보기 <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true"><div class="hero-orb"></div></div>
+      </section>
 
-      <div class="app">
-        <strong>ShiftKing</strong>
-        <span>Shift work calendar and schedule management.</span>
-      </div>
+      <section id="apps" aria-labelledby="apps-title">
+        <div class="section-heading">
+          <div><p class="section-kicker">Our apps</p><h2 id="apps-title">일상에 잘 맞는 앱</h2></div>
+          <p class="section-note">필요한 순간, 가볍고 편리하게.</p>
+        </div>
+        <div class="apps">
+          <article class="app-card">
+            <div class="app-top">
+              <div class="app-icon king-icon" aria-hidden="true">♛</div>
+              <p class="app-category">Schedule &amp; calendar</p>
+              <h3>ShiftKing</h3>
+              <p class="app-description">복잡한 교대근무도 한눈에. 근무표를 달력과 위젯에서 확인하고, 휴가·대근·메모를 기록하세요. 연차 계산까지 간편하게 관리할 수 있습니다.</p>
+              <ul class="feature-list"><li>교대근무 달력</li><li>근무표 검색</li><li>위젯 · 연차 계산</li></ul>
+              <div class="store-links">
+                <a class="store-link" href="https://apps.apple.com/kr/app/shiftking/id918757120" target="_blank" rel="noopener noreferrer" aria-label="ShiftKing App Store에서 보기">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.8c0-2.2 1.8-3.3 1.9-3.4-1.1-1.6-2.8-1.8-3.4-1.8-1.5-.2-2.9.9-3.6.9s-1.8-.9-3-.8c-1.6 0-3 1-3.8 2.3-1.6 2.7-.4 6.6 1.1 8.8.8 1.1 1.7 2.4 2.9 2.4s1.6-.7 3-.7 1.8.7 3 .7 2-1.1 2.7-2.3c.9-1.3 1.2-2.5 1.2-2.6-.1 0-2-1-2-3.5ZM14 5.9c.6-.8 1-1.8.9-2.9-1 .1-2 .7-2.7 1.5-.6.7-1.1 1.8-1 2.8 1 .1 2.1-.5 2.8-1.4Z"/></svg>App Store <span aria-hidden="true">↗</span>
+                </a>
+                <a class="store-link" href="https://play.google.com/store/apps/details?id=ing.shiftk.android" target="_blank" rel="noopener noreferrer" aria-label="ShiftKing Google Play에서 보기">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3 2.5v19L13.2 12 3 2.5Z"/><path fill="#4285f4" d="M3 2.5 16.5 10l-3.3 2L3 2.5Z"/><path fill="#fbbc04" d="m13.2 12 3.3 2L3 21.5 13.2 12Z"/><path fill="#ea4335" d="m16.5 10 3.2 1.8c.5.3.5.9 0 1.2L16.5 14l-3.3-2 3.3-2Z"/></svg>Google Play <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+            <div class="visual king-visual" aria-hidden="true">
+              <div class="phone"><div class="phone-title">September <span>2026 ↗</span></div><div class="calendar">
+                <span class="week">S</span><span class="week">M</span><span class="week">T</span><span class="week">W</span><span class="week">T</span><span class="week">F</span><span class="week">S</span>
+                <span></span><span></span><span class="morning">1</span><span class="morning">2</span><span class="night">3</span><span class="night">4</span><span class="off">5</span>
+                <span class="off">6</span><span class="morning">7</span><span class="morning">8</span><span class="night">9</span><span class="night">10</span><span class="off">11</span><span class="off">12</span>
+                <span class="morning">13</span><span class="morning">14</span><span class="night">15</span><span class="night">16</span><span class="off">17</span><span class="off">18</span><span class="morning">19</span>
+                <span class="morning">20</span><span class="night">21</span><span class="night">22</span><span class="off">23</span><span class="off">24</span><span class="morning">25</span><span class="morning">26</span>
+              </div><div class="phone-caption"><strong>My schedule</strong>근무 · 휴무 · 메모를 한눈에</div></div>
+            </div>
+          </article>
 
-      <div class="app">
-        <strong>WheelU</strong>
-        <span>Mobile utility app by Nine&amp;U.</span>
-      </div>
-    </section>
+          <article class="app-card">
+            <div class="app-top">
+              <div class="app-icon wheel-icon" aria-hidden="true">✳</div>
+              <p class="app-category">Decision maker</p>
+              <h3>WheelU</h3>
+              <p class="app-description">오늘 점심부터 친구들과의 내기까지. 선택지를 넣고 돌림판을 돌려보세요. 나만의 돌림판을 저장하고 다른 사람과 공유할 수도 있습니다.</p>
+              <ul class="feature-list"><li>맞춤 돌림판</li><li>빠른 결정</li><li>저장 · 공유</li></ul>
+              <div class="store-links">
+                <a class="store-link" href="https://apps.apple.com/kr/app/wheelu/id1453542550" target="_blank" rel="noopener noreferrer" aria-label="WheelU App Store에서 보기">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.8c0-2.2 1.8-3.3 1.9-3.4-1.1-1.6-2.8-1.8-3.4-1.8-1.5-.2-2.9.9-3.6.9s-1.8-.9-3-.8c-1.6 0-3 1-3.8 2.3-1.6 2.7-.4 6.6 1.1 8.8.8 1.1 1.7 2.4 2.9 2.4s1.6-.7 3-.7 1.8.7 3 .7 2-1.1 2.7-2.3c.9-1.3 1.2-2.5 1.2-2.6-.1 0-2-1-2-3.5ZM14 5.9c.6-.8 1-1.8.9-2.9-1 .1-2 .7-2.7 1.5-.6.7-1.1 1.8-1 2.8 1 .1 2.1-.5 2.8-1.4Z"/></svg>App Store <span aria-hidden="true">↗</span>
+                </a>
+                <a class="store-link" href="https://play.google.com/store/apps/details?id=com.nineandu.wheelu" target="_blank" rel="noopener noreferrer" aria-label="WheelU Google Play에서 보기">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3 2.5v19L13.2 12 3 2.5Z"/><path fill="#4285f4" d="M3 2.5 16.5 10l-3.3 2L3 2.5Z"/><path fill="#fbbc04" d="m13.2 12 3.3 2L3 21.5 13.2 12Z"/><path fill="#ea4335" d="m16.5 10 3.2 1.8c.5.3.5.9 0 1.2L16.5 14l-3.3-2 3.3-2Z"/></svg>Google Play <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+            <div class="visual wheel-visual" aria-hidden="true">
+              <div class="phone wheel-phone"><div class="phone-title">WheelU <span>My wheels</span></div><div class="wheel-display"></div><p class="wheel-label">무엇을 고를까요?</p><div class="wheel-choice"><span>영화</span><span>산책</span><span>맛집</span></div></div>
+            </div>
+          </article>
+        </div>
+      </section>
 
-    <section>
-      <h2>Links</h2>
-
-      <div class="links">
-        <a href="https://blog.9andu.com/">Blog</a>
-        <a href="https://legal.shiftk.ing/">ShiftKing Privacy Policy</a>
-      </div>
-    </section>
+      <section class="bottom" aria-labelledby="contact-title">
+        <div><h2 id="contact-title">함께 이야기해요.</h2><p>앱에 대한 의견이나 제안이 있다면 편하게 보내주세요.</p></div>
+        <a class="contact-link" href="mailto:9andu.inc@gmail.com">9andu.inc@gmail.com <span aria-hidden="true">↗</span></a>
+      </section>
+    </main>
 
     <footer>
-      &copy; 2026 Nine&amp;U
+      <span>© 2026 Nine&amp;U. All rights reserved.</span>
+      <div class="footer-links"><a href="https://blog.9andu.com/" target="_blank" rel="noopener noreferrer">Blog</a><a href="https://legal.shiftk.ing/" target="_blank" rel="noopener noreferrer">ShiftKing Privacy Policy</a></div>
     </footer>
-
-  </main>
+  </div>
 </body>
 </html>
